@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The story of North Star Bakery, where our ingredients come from, and the bakers behind your bread.">
   <title>About | North Star Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400&family=Nunito+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <a href="index.html">
-      <img src="Bakery_c/bakery-logo_c.png" alt="North Star Bakery home" width="200" height="169">
-    </a>
-    <p>Handmade bread and pastries, baked fresh for the neighborhood.</p>
-    <nav aria-label="Main">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html">
+        <img src="Bakery_c/bakery-logo_c.png" alt="North Star Bakery home" width="200" height="169">
+      </a>
+      <p class="tagline">Handmade bread and pastries, baked fresh for the neighborhood.</p>
+    </div>
+    <nav class="site-nav" aria-label="Main">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Products</a></li>
@@ -26,59 +32,65 @@
     <h1>About North Star Bakery</h1>
 
     <section aria-labelledby="story-heading">
-      <h2 id="story-heading">Our Story</h2>
-      <p>North Star Bakery started in 2014 with one small oven, one sourdough starter, and a simple idea: every neighborhood deserves a place where bread is made by hand. Founder Maria Lindqvist sold her first loaves at the Saturday farmers market. When neighbors started knocking on her door on weekdays, she knew it was time to open a shop.</p>
-      <p>Today we bake for commuters, families, schools, and local event planners, but we still shape every loaf by hand, just as we did on day one.</p>
-
-      <figure>
-        <img src="Bakery_c/bakery-signature-loaf_c.png" alt="A round, dark-crusted Signature Loaf dusted with flour, nestled in a white and tan checked kitchen towel" width="400" height="400">
-        <figcaption>Our Signature Loaf: a 36-hour fermented rye and wheat sourdough, made with the same starter Maria began with in 2014.</figcaption>
-      </figure>
+      <div class="split">
+        <div>
+          <h2 id="story-heading">Our Story</h2>
+          <p>North Star Bakery started in 2014 with one small oven, one sourdough starter, and a simple idea: every neighborhood deserves a place where bread is made by hand. Founder Maria Lindqvist sold her first loaves at the Saturday farmers market. When neighbors started knocking on her door on weekdays, she knew it was time to open a shop.</p>
+          <p>Today we bake for commuters, families, schools, and local event planners, but we still shape every loaf by hand, just as we did on day one.</p>
+        </div>
+        <figure>
+          <img src="Bakery_c/bakery-signature-loaf_c.png" alt="A round, dark-crusted Signature Loaf dusted with flour, nestled in a white and tan checked kitchen towel" width="400" height="400">
+          <figcaption>Our Signature Loaf: a 36-hour fermented rye and wheat sourdough, made with the same starter Maria began with in 2014.</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <section aria-labelledby="sourcing-heading">
-      <h2 id="sourcing-heading">Our Sourcing Philosophy</h2>
-      <p>Good bread starts with good ingredients. We keep our list short and our partners close to home.</p>
-      <ul>
-        <li><strong>Flour:</strong> Stone-milled wheat and rye from a family mill less than 60 miles away.</li>
-        <li><strong>Dairy and eggs:</strong> Butter, milk, and eggs from regional farms.</li>
-        <li><strong>Fruit:</strong> Seasonal berries, apples, and pumpkins from local growers.</li>
-        <li><strong>No shortcuts:</strong> No artificial preservatives, just time, care, and real ingredients.</li>
-      </ul>
-    </section>
+    <div class="card-row">
+      <section aria-labelledby="sourcing-heading">
+        <h2 id="sourcing-heading">Our Sourcing Philosophy</h2>
+        <p>Good bread starts with good ingredients. We keep our list short and our partners close to home.</p>
+        <ul>
+          <li><strong>Flour:</strong> Stone-milled wheat and rye from a family mill less than 60 miles away.</li>
+          <li><strong>Dairy and eggs:</strong> Butter, milk, and eggs from regional farms.</li>
+          <li><strong>Fruit:</strong> Seasonal berries, apples, and pumpkins from local growers.</li>
+          <li><strong>No shortcuts:</strong> No artificial preservatives, just time, care, and real ingredients.</li>
+        </ul>
+      </section>
 
-    <section aria-labelledby="behind-heading">
-      <h2 id="behind-heading">Behind the Scenes</h2>
-      <p>Ever wondered what happens at 4 a.m. in our kitchen? Take a short look at how our bread comes together.</p>
-      <video controls width="640" preload="metadata" poster="Bakery_c/bakery-storefront_c.png">
-        <source src="Bakery_c/bakery-behind-scenes_c.mp4" type="video/mp4">
-        Your browser does not support the video element. You can
-        <a href="Bakery_c/bakery-behind-scenes_c.mp4">download the behind-the-scenes video (MP4)</a> instead.
-      </video>
-      <p>Video description: Our bakers mix and shape dough, load loaves into the oven, and pull out golden, crusty bread ready for the morning shelves.</p>
-    </section>
+      <section aria-labelledby="behind-heading">
+        <h2 id="behind-heading">Behind the Scenes</h2>
+        <p>Ever wondered what happens at 4 a.m. in our kitchen? Take a short look at how our bread comes together.</p>
+        <video controls width="640" preload="metadata" poster="Bakery_c/bakery-storefront_c.png">
+          <source src="Bakery_c/bakery-behind-scenes_c.mp4" type="video/mp4">
+          Your browser does not support the video element. You can
+          <a href="Bakery_c/bakery-behind-scenes_c.mp4">download the behind-the-scenes video (MP4)</a> instead.
+        </video>
+        <p>Video description: Our bakers mix and shape dough, load loaves into the oven, and pull out golden, crusty bread ready for the morning shelves.</p>
+      </section>
+    </div>
 
     <section aria-labelledby="staff-heading">
       <h2 id="staff-heading">Meet Our Team</h2>
+      <div class="card-row team">
+        <article>
+          <h3>Maria Lindqvist, Founder and Head Baker</h3>
+          <p>Maria has been baking bread for over 20 years and still arrives first every morning. Her favorite loaf is the Signature Loaf, which she calls "the heart of the bakery."</p>
+        </article>
 
-      <article>
-        <h3>Maria Lindqvist, Founder and Head Baker</h3>
-        <p>Maria has been baking bread for over 20 years and still arrives first every morning. Her favorite loaf is the Signature Loaf, which she calls "the heart of the bakery."</p>
-      </article>
+        <article>
+          <h3>Daniel Okafor, Pastry Chef</h3>
+          <p>Daniel leads our pastry case, from croissants to custom cakes. He loves working with event planners to design cakes that fit every celebration.</p>
+        </article>
 
-      <article>
-        <h3>Daniel Okafor, Pastry Chef</h3>
-        <p>Daniel leads our pastry case, from croissants to custom cakes. He loves working with event planners to design cakes that fit every celebration.</p>
-      </article>
-
-      <article>
-        <h3>Grace Chen, Front of House Manager</h3>
-        <p>Grace knows most of our regulars by name and makes sure every pre-order is ready on time. She is your go-to for questions about allergies and ingredients.</p>
-      </article>
+        <article>
+          <h3>Grace Chen, Front of House Manager</h3>
+          <p>Grace knows most of our regulars by name and makes sure every pre-order is ready on time. She is your go-to for questions about allergies and ingredients.</p>
+        </article>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p>&copy; 2026 North Star Bakery. Baked by hand, shared with our neighbors.</p>
     <p>412 Maple Street, Northfield, MN 55057 &middot; <a href="tel:+15075550142">(507) 555-0142</a></p>
   </footer>

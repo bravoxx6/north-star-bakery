@@ -1,0 +1,482 @@
+/* =========================================================
+   North Star Bakery - shared stylesheet
+   Mobile-first: base styles are for small screens.
+   Media queries at the bottom adjust the layout for
+   tablets (768px+) and desktops (1024px+).
+
+   Color palette (4 colors, taken from the logo):
+     Espresso  #5A3A2E  text, headings, buttons, footer
+     Wheat     #C49E82  accent borders and highlights (never text)
+     Cream     #FBF6EF  page background, text on dark areas
+     White     #FFFFFF  cards and form fields
+
+   Fonts (2 families):
+     Lora         headings (warm, handmade serif)
+     Nunito Sans  body text (clean, easy to read)
+   ========================================================= */
+
+:root {
+  --espresso: #5A3A2E;
+  --wheat: #C49E82;
+  --cream: #FBF6EF;
+  --white: #FFFFFF;
+
+  --font-heading: "Lora", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+
+  --radius: 12px;
+  --max-width: 1100px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+audio {
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 var(--space-sm);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding-bottom: var(--space-xs);
+  border-bottom: 3px solid var(--wheat);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: var(--space-md);
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 var(--space-sm);
+}
+
+a {
+  color: var(--espresso);
+  font-weight: 700;
+  text-decoration-color: var(--wheat);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--espresso);
+}
+
+/* Visible keyboard focus on every interactive element */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--espresso);
+  outline-offset: 3px;
+}
+
+/* ---------- Header and navigation ---------- */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background-color: var(--white);
+  border-bottom: 4px solid var(--wheat);
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.brand img {
+  width: 120px;
+}
+
+.tagline {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--espresso);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  background-color: var(--espresso);
+  color: var(--cream);
+}
+
+/* ---------- Main content ---------- */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-sm) var(--space-lg);
+}
+
+main > h1 {
+  margin: 0;
+  text-align: center;
+}
+
+main > p {
+  margin: 0;
+  max-width: 70ch;
+  align-self: center;
+  text-align: center;
+}
+
+/* Every content section is a white card */
+main section {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: 0 2px 8px rgba(90, 58, 46, 0.08);
+}
+
+main section img,
+main section picture img,
+main section video {
+  border-radius: var(--radius);
+}
+
+main section > img,
+main section > video {
+  margin-bottom: var(--space-sm);
+}
+
+/* A row of cards: stacked on phones, side by side on bigger screens */
+.card-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Text and image pair: stacked on phones, side by side on bigger screens */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.price {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-left: 4px solid var(--wheat);
+  background-color: var(--cream);
+}
+
+/* Staff cards on the About page */
+.team article {
+  flex: 1;
+  padding: var(--space-sm);
+  border: 2px solid var(--wheat);
+  border-radius: var(--radius);
+}
+
+.team article h3 {
+  margin-top: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: var(--space-xs);
+  font-style: italic;
+  text-align: center;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: var(--space-sm);
+}
+
+/* ---------- Hours table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--wheat);
+}
+
+/* ---------- Form ---------- */
+fieldset {
+  margin: 0 0 var(--space-md);
+  padding: var(--space-sm);
+  border: 2px solid var(--wheat);
+  border-radius: var(--radius);
+}
+
+legend {
+  padding: 0 var(--space-xs);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font: inherit;
+  color: var(--espresso);
+  background-color: var(--white);
+  border: 2px solid var(--espresso);
+  border-radius: 8px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.choice label {
+  font-weight: 400;
+}
+
+input[type="radio"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--espresso);
+}
+
+.hint {
+  font-size: 0.9rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--cream);
+  background-color: var(--espresso);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: var(--space-md) var(--space-sm);
+  background-color: var(--espresso);
+  color: var(--cream);
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 0 var(--space-xs);
+}
+
+.site-footer a {
+  color: var(--cream);
+}
+
+.site-footer a:focus-visible {
+  outline-color: var(--cream);
+}
+
+/* =========================================================
+   Tablet: 768px and wider
+   ========================================================= */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Logo and tagline on the left, navigation on the right */
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-lg);
+    text-align: left;
+  }
+
+  .brand {
+    flex-direction: row;
+    gap: var(--space-sm);
+  }
+
+  .brand img {
+    width: 100px;
+  }
+
+  .site-nav ul {
+    justify-content: flex-end;
+  }
+
+  main {
+    padding: var(--space-lg) var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  main section {
+    padding: var(--space-lg);
+  }
+
+  /* Cards sit side by side and wrap when there is not enough room */
+  .card-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card-row > * {
+    flex: 1 1 300px;
+  }
+
+  /* Text and image share the row */
+  .split {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .split > * {
+    flex: 1;
+  }
+
+  /* Name and email fields side by side */
+  .field-row {
+    flex-direction: row;
+    gap: var(--space-sm);
+  }
+
+  .field-row .field {
+    flex: 1;
+  }
+
+  .choices {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  button {
+    width: auto;
+  }
+}
+
+/* =========================================================
+   Desktop: 1024px and wider
+   ========================================================= */
+@media (min-width: 1024px) {
+  .site-header {
+    /* Keeps header content lined up with the centered main content */
+    padding: var(--space-sm) max(var(--space-lg), calc((100% - var(--max-width)) / 2 + var(--space-md)));
+  }
+
+  .brand img {
+    width: 110px;
+  }
+
+  /* Keep all four navigation links on one line */
+  .site-nav {
+    flex-shrink: 0;
+  }
+
+  /* Three product categories in one row */
+  .card-row > * {
+    flex: 1 1 0;
+  }
+}

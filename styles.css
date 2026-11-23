@@ -358,6 +358,165 @@ button:hover {
   text-decoration: underline;
 }
 
+/* ---------- Touchstone 4: pre-order list and form feedback ---------- */
+
+/* Hidden visually but still read by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* "Add to pre-order list" buttons on the products page */
+.add-btn,
+.small-btn {
+  width: auto;
+  padding: 0.4rem 1rem;
+  font-size: 0.95rem;
+  color: var(--espresso);
+  background-color: var(--white);
+  border: 2px solid var(--espresso);
+}
+
+.add-btn {
+  margin-bottom: var(--space-sm);
+}
+
+.add-btn.is-added {
+  color: var(--cream);
+  background-color: var(--espresso);
+}
+
+.small-btn {
+  padding: 0.25rem 0.75rem;
+  min-width: 2.25rem;
+}
+
+/* The saved list */
+.order-panel {
+  border: 3px solid var(--wheat);
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0 0 var(--space-sm);
+  padding: 0;
+  list-style: none;
+}
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--cream);
+  border-radius: 8px;
+}
+
+.order-item-name small {
+  display: block;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.qty {
+  min-width: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* A link styled like the main button */
+.button-link {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  color: var(--cream);
+  background-color: var(--espresso);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--cream);
+}
+
+/* Item count next to "Contact & Pre-Order" in the navigation */
+.nav-count {
+  display: inline-block;
+  min-width: 1.5rem;
+  margin-left: 0.4rem;
+  padding: 0 0.4rem;
+  color: var(--espresso);
+  background-color: var(--wheat);
+  border-radius: 999px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Form validation feedback (dark red is a status color, not part of the brand palette) */
+.error-message {
+  margin: 0;
+  color: #A12C2C;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.error-message:empty {
+  display: none;
+}
+
+.error-message::before {
+  content: "\26A0  ";
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: #A12C2C;
+  background-color: #FDF3F2;
+}
+
+.form-summary {
+  padding: var(--space-sm);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.form-summary.is-error {
+  color: #A12C2C;
+  background-color: #FDF3F2;
+  border-left: 5px solid #A12C2C;
+}
+
+.form-summary.is-success {
+  background-color: var(--cream);
+  border-left: 5px solid var(--espresso);
+}
+
+.prefill-note {
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.95rem;
+  background-color: var(--cream);
+  border-left: 4px solid var(--wheat);
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: var(--space-md) var(--space-sm);
@@ -454,6 +613,13 @@ button:hover {
 
   button {
     width: auto;
+  }
+
+  /* List rows: product name on the left, quantity buttons on the right */
+  .order-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400&family=Nunito+Sans:wght@400;700&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -35,20 +36,23 @@
     <section aria-labelledby="form-heading">
       <h2 id="form-heading">Pre-Order and Inquiry Form</h2>
       <p>Fields marked with an asterisk (*) are required.</p>
+      <p id="form-summary" class="form-summary" tabindex="-1" aria-live="polite" hidden></p>
 
-      <form action="#" method="post">
+      <form id="preorder-form" action="#" method="post">
         <fieldset>
           <legend>Your Contact Information</legend>
 
           <div class="field-row">
             <div class="field">
               <label for="name">Full name *</label>
-              <input type="text" id="name" name="name" autocomplete="name" required minlength="2" maxlength="80">
+              <input type="text" id="name" name="name" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="name-error">
+              <p id="name-error" class="error-message"></p>
             </div>
 
             <div class="field">
               <label for="email">Email address *</label>
-              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com">
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com" aria-describedby="email-error">
+              <p id="email-error" class="error-message"></p>
             </div>
           </div>
         </fieldset>
@@ -76,19 +80,23 @@
 
           <div class="field">
             <label for="pickup-date">Pickup date *</label>
-            <input type="date" id="pickup-date" name="pickup-date" required min="2026-11-24" aria-describedby="pickup-hint">
+            <input type="date" id="pickup-date" name="pickup-date" required min="2026-11-24" aria-describedby="pickup-hint pickup-date-error">
             <small id="pickup-hint" class="hint">Please allow at least two days for pre-orders and one week for custom cakes. We are closed on Mondays.</small>
+            <p id="pickup-date-error" class="error-message"></p>
           </div>
 
           <div class="field">
             <label for="item-details">Item details *</label>
-            <textarea id="item-details" name="item-details" rows="5" cols="40" required minlength="10" maxlength="1000" placeholder="Example: 2 country sourdough loaves and 1 dozen butter croissants"></textarea>
+            <p id="prefill-note" class="prefill-note" hidden>We filled this in from your <a href="products.html#order-list">pre-order list</a>. You can edit it before sending.</p>
+            <textarea id="item-details" name="item-details" rows="5" cols="40" required minlength="10" maxlength="1000" placeholder="Example: 2 country sourdough loaves and 1 dozen butter croissants" aria-describedby="item-details-error"></textarea>
+            <p id="item-details-error" class="error-message"></p>
           </div>
 
           <div class="field">
             <label for="allergy-notes">Allergy notes (if applicable)</label>
-            <textarea id="allergy-notes" name="allergy-notes" rows="3" cols="40" maxlength="500" aria-describedby="allergy-hint"></textarea>
+            <textarea id="allergy-notes" name="allergy-notes" rows="3" cols="40" maxlength="500" aria-describedby="allergy-hint allergy-notes-error"></textarea>
             <small id="allergy-hint" class="hint">Our kitchen handles wheat, dairy, eggs, and tree nuts. Tell us about any allergies and we'll let you know what we can safely offer.</small>
+            <p id="allergy-notes-error" class="error-message"></p>
           </div>
         </fieldset>
 

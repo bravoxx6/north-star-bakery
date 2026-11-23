@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400&family=Nunito+Sans:wght@400;700&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -30,7 +31,7 @@
 
   <main>
     <h1>Our Breads, Pastries, and Cakes</h1>
-    <p>Everything on our shelves is made from scratch in our kitchen. Selection changes with the seasons, so the best way to guarantee your favorite is to <a href="contact.html">send a pre-order request</a>. We don't take payment online; you pay when you pick up.</p>
+    <p>Everything on our shelves is made from scratch in our kitchen. Add items to your <a href="#order-list">pre-order list</a> as you browse. Selection changes with the seasons, so the best way to guarantee your favorite is to <a href="contact.html">send a pre-order request</a>. We don't take payment online; you pay when you pick up.</p>
 
     <div class="card-row">
       <section aria-labelledby="breads-heading">
@@ -40,12 +41,15 @@
 
         <h3>Country Sourdough</h3>
         <p>Our everyday loaf: tangy, open crumb, and a dark, blistered crust.</p>
+        <button type="button" class="add-btn" data-product="country-sourdough">+ Add to pre-order list</button>
 
         <h3>Seeded Multigrain</h3>
         <p>Whole wheat with flax, sunflower, and pumpkin seeds. Hearty and great for sandwiches.</p>
+        <button type="button" class="add-btn" data-product="seeded-multigrain">+ Add to pre-order list</button>
 
         <h3>Rye and Signature Loaf</h3>
         <p>A dense, flavorful rye and our famous North Star Signature Loaf. <a href="about.html">Read the Signature Loaf story</a>.</p>
+        <button type="button" class="add-btn" data-product="signature-loaf">+ Add to pre-order list</button>
 
         <p class="price"><strong>Price range:</strong> $6 to $11 per loaf.</p>
       </section>
@@ -56,12 +60,15 @@
 
         <h3>Croissants</h3>
         <p>Plain butter, chocolate, and almond, laminated by hand every morning.</p>
+        <button type="button" class="add-btn" data-product="croissants">+ Add to pre-order list</button>
 
         <h3>Scones and Muffins</h3>
         <p>Seasonal flavors like blueberry lemon, pumpkin spice, and cranberry orange.</p>
+        <button type="button" class="add-btn" data-product="scones-muffins">+ Add to pre-order list</button>
 
         <h3>Cookies</h3>
         <p>Chocolate chunk, iced sugar, and almond sandwich cookies, available by the piece or by the dozen.</p>
+        <button type="button" class="add-btn" data-product="cookies">+ Add to pre-order list</button>
 
         <p class="price"><strong>Price range:</strong> $2.50 to $5 each. Dozens are available by pre-order.</p>
       </section>
@@ -72,16 +79,29 @@
 
         <h3>Everyday Cakes</h3>
         <p>Six-inch and eight-inch rounds in chocolate, vanilla bean, and carrot. Often available in our case on weekends.</p>
+        <button type="button" class="add-btn" data-product="everyday-cake">+ Add to pre-order list</button>
 
         <h3>Celebration and Event Cakes</h3>
         <p>Custom tiered and sheet cakes for weddings, graduations, and office parties. Please request at least one week ahead.</p>
+        <button type="button" class="add-btn" data-product="celebration-cake">+ Add to pre-order list</button>
 
         <p class="price"><strong>Price range:</strong> $28 to $45 for everyday cakes. Custom cakes start at $60 and are quoted per request.</p>
       </section>
     </div>
 
-    <section aria-labelledby="order-heading">
-      <h2 id="order-heading">How to Order</h2>
+    <section id="order-list" class="order-panel" aria-labelledby="order-heading">
+      <h2 id="order-heading">My Pre-Order List (<span id="order-total">0</span>)</h2>
+      <p id="order-empty">Your list is empty. Use the &ldquo;Add to pre-order list&rdquo; buttons above to start planning your order. Your list is saved on this device, so you can come back to it later.</p>
+      <ul id="order-items" class="order-items"></ul>
+      <div id="order-actions" class="order-actions" hidden>
+        <a class="button-link" href="contact.html">Continue to pre-order form</a>
+        <button type="button" id="clear-list" class="small-btn">Clear list</button>
+      </div>
+      <p id="order-status" class="visually-hidden" aria-live="polite"></p>
+    </section>
+
+    <section aria-labelledby="how-heading">
+      <h2 id="how-heading">How to Order</h2>
       <ol>
         <li>Choose your items from the list above.</li>
         <li>Fill out our <a href="contact.html">pre-order request form</a> with your pickup date.</li>
